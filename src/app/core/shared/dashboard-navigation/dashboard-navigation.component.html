@@ -1,0 +1,19 @@
+<!-- Navigation Bar o barra superior -->
+<app-navigation-bar (isSideMenuOpen)="expandSidebar()"/>
+
+<!-- Barra lateral -->
+<app-sideMenu (isSideMenuOpen)="expandSidebar()" [isToggleSideMenu]="theSideMenuIsOpen()"/>
+
+<!-- Contenedor -->
+<div class="childrenContainer ml-16 h-screen fixed w-full lg:w-3/4 transition-all duration-200 ease-in-out">
+  <div class="relative" style="width: 95%; margin-bottom: 1%;">
+    <span class="absolute inset-y-0 left-0 pl-3 flex items-center">
+      <i class="fas fa-search text-gray-200"></i>
+    </span>
+    <input type="text"
+      class="pl-10 pr-4 py-2 rounded-full border border-gray-300 w-full text-sm placeholder-gray-400"
+      placeholder="Buscar..." />
+  </div>
+
+  <router-outlet />
+</div>

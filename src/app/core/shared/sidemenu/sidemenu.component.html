@@ -1,0 +1,38 @@
+<div id="sidebar"
+    class="sideMenuContainer w-16 bg-white h-screen fixed rounded-none border-none transition-all duration-200 ease-in-out overflow-hidden">
+    <!-- Items -->
+    <div class="p-2 space-y-4">
+        <ul class="relative">
+
+            <div class="buttonOptionContainer">
+                <button [ngClass]="{'buttonListStyle': !menuItems[0].isListOpen, 'buttonListOpenStyle': menuItems[0].isListOpen}" (click)="toggleSideMenu()">
+                    <i class="fa-solid fa-magnet" id="iconListStyle"></i>
+                    <div class="titleListStyle" *ngIf="isToggleSideMenu">
+                        <span style="font-weight: 800;">{{ menuItems[0].title }}</span>
+                        <span style="font-size: x-small;" *ngIf="menuItems[0]?.label && isToggleSideMenu">{{ menuItems[0].label }}</span>
+                    </div>
+                    @if (isToggleSideMenu && !menuItems[0].isListOpen) {
+                        <i class="fa-solid fa-arrow-down" id="iconListStyle"></i>
+                    }
+                    @else if (isToggleSideMenu && menuItems[0].isListOpen) {
+                        <i class="fa-solid fa-arrow-up" id="iconListStyle"></i>
+                    }
+                </button>
+                <div class="mt-2 ml-5 transition-all ease-in-out transform" [ngClass]="{ 'expanded': menuItems[0].isListOpen, 'collapsed': !menuItems[0].isListOpen }">
+                    @for (item of menuItems.slice(1, menuItems.length); track $index) {
+                        <ul class="list-disc pl-5">
+                            <li>
+                                <a [routerLink]="item.url" routerLinkActive="bg-blue-800" >
+                                    <i [ngClass]="item.icon" id="iconListStyle"></i>
+                                    {{ item.title }}
+                                </a>
+                            </li>
+                        </ul>
+                    }
+                </div>
+            </div>
+            <hr class="mt-3">
+
+        </ul>
+    </div>
+</div>

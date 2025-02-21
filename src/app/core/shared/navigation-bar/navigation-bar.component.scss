@@ -1,0 +1,14 @@
+.navBarContainer {
+    align-items: center;
+    background-color: #046bbb;
+    display: flex;
+    min-height: 7vh;
+}
+
+.dropdown .dropdown-menu {
+    display: none;
+}
+
+.dropdown.selected .dropdown-menu {
+    display: block;
+}
